@@ -51,8 +51,7 @@ def create_desktop_entry(
 
     terminal = "true" if terminal else "false"
 
-    entry = f""" 
-    [Desktop Entry]
+    entry = f"""[Desktop Entry]
     Version={version}
     Name={name}
     Exec={exec}
@@ -82,3 +81,11 @@ def list_all_entries(starts_with: str = ""):
     for entry in entries:
         if entry.startswith(starts_with):
             log.cyan(entry)
+
+
+def remove_desktop_entry(filename: str):
+    log = PrintLog()
+
+    os.remove(os.path.join(settings.DESKTOP_ENTRY_LOCATION, filename))
+
+    log.success(f"Desktop entry {filename} removed successfuly!")
