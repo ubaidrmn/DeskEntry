@@ -1,3 +1,5 @@
 PROGRAM_NAME = "DeskEntry"
-DESCRIPTION = "A very simple desktop entry creator, written in Python that allows you to create desktop entries of applications in linux."
-EPILOG = "Built by https://github.com/ubaidrmn. If you like this tool leave a star. Enjoy!"
+DESCRIPTION = "A simple desktop entry creator for Linux, written in Python. Easily create/remove desktop entries for your applications."
+EPILOG = "Built by https://github.com/ubaidrmn. If you find this tool useful, consider leaving a star. Enjoy!"
+
+DESKTOP_ENTRY_LOCATION = "/usr/share/applications/"
