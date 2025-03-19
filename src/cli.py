@@ -2,7 +2,7 @@ import os
 import argparse
 import settings
 
-from lib import create_desktop_entry
+from lib import *
 
 
 def run():
@@ -30,10 +30,20 @@ def run():
         "remove", help="Remove an existing desktop entry"
     )
 
+    # Listing entries
+
+    list_parser = subparsers.add_parser(
+        "list", help="List all existing desktop entries"
+    )
+    list_parser.add_argument("-s", "--starts-with", required=False)
+
     args = parser.parse_args()
 
     if args.command == "add":
         create_desktop_entry(args.name, args.exec, args.path, args.icon)
+    elif args.command == "list":
+        starts_with = args.starts_with if args.starts_with else ""
+        list_all_entries(starts_with=starts_with)
 
 
 if __name__ == "__main__":

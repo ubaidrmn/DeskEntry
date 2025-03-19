@@ -23,6 +23,9 @@ class PrintLog:
     def warning(self, message: str):
         print(f"{self.WARNING}{message}")
 
+    def cyan(self, message: str):
+        print(f"{self.OKCYAN}{message}")
+
 
 def create_desktop_entry(
     name: str,
@@ -69,3 +72,13 @@ def create_desktop_entry(
 def create_categories_string(categories: typing.List[str]):
     categories_string = ";".join(categories)
     return categories_string
+
+
+def list_all_entries(starts_with: str = ""):
+    log = PrintLog()
+
+    entries = os.listdir(settings.DESKTOP_ENTRY_LOCATION)
+
+    for entry in entries:
+        if entry.startswith(starts_with):
+            log.cyan(entry)
